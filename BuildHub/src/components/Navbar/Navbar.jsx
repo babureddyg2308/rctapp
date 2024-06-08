@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./navbar.css";
 import { FaUser, FaMapMarkerAlt } from "react-icons/fa";
 
@@ -10,58 +11,48 @@ const Navbar = () => {
     if (newLocation) {
       setLocation(newLocation.toUpperCase());
     }
-
-    const promptDialog = document.querySelector(".prompt-background");
-    if (promptDialog) {
-      promptDialog.style.backgroundColor = "lightgray";
-    }
   };
 
   return (
     <section>
-      <header className="Header flex" style={{color:'white', width:''}}>
+      <header className="Header flex" style={{color:'white'}}>
         <div className="image">
-          <a href="/"> <img src="../contents/BuildHub_logo.jpeg" alt="" style={{width:'12vw',marginTop:'25px',borderRadius:'10px'}}/></a>
+          <Link to="/"><img src="../contents/BuildHub_logo.jpeg" alt="" style={{width:'12vw',marginTop:'25px',borderRadius:'10px'}}/></Link>
         </div>
         <div className="navlist flex">
           <li className="navItem">
-            <a href="/fitnes" className="navLink">
+            <Link to="/fitnes" className="navLink">
               FITNESS
-            </a>
+            </Link>
           </li>
           <li className="navItem">
-            <a href="/transform" className="navLink">
+            <Link to="/transform" className="navLink">
               TRANSFORM
-            </a>
+            </Link>
           </li>
           <li className="navItem">
-            <a href="/care" className="navLink">
+            <Link to="/care" className="navLink">
               CARE
-            </a>
+            </Link>
           </li>
           <li className="navItem">
-            <a href="/mind" className="navLink">
+            <Link to="/mind" className="navLink">
               MIND
-            </a>
+            </Link>
           </li>
           <li className="navItem">
-            <a href="/care" className="navLink">
+            <Link to="/store" className="navLink">
               STORE
-            </a>
+            </Link>
           </li>
         </div>
         <div className="nav-right">
-          <li
-            to="/location"
-            className="nav-link"
-            onClick={handleLocationChange}
-          >
+          <li className="nav-link" onClick={handleLocationChange}>
             <FaMapMarkerAlt />
             {location}
           </li>
           <button className="btn">GET APP</button>
-          
-          <a href="/signin"><FaUser className="login-icon" /></a>
+          <Link to="/signin"><FaUser className="login-icon" /></Link>
         </div>
       </header>
     </section>
@@ -69,5 +60,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
